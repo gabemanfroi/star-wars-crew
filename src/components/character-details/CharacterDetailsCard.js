@@ -1,62 +1,27 @@
-import {Fab, Grid, Paper, Tab, Tabs, Typography} from "@material-ui/core";
-import {CharacterAvatar} from "../home/CharacterList/CharacterCard/CharacterAvatar/CharacterAvatar";
-import React, {useContext, useState} from "react";
-import TabPanel from "../shared/TabPanel/TabPanel";
-import {ScreenSizeContext} from "../../contexts/ScreenSizeContext";
+import {Paper, Tab, Tabs} from "@material-ui/core";
+import React, {useState} from "react";
+
+import GeneralInfoPanel from "./GeneralInfoPanel/GeneralInfoPanel";
+import PlanetsPanel from "./PlanetsPanel/PlanetsPanel";
+import {Spinner} from "../shared/Spinner/Spinner";
+import {CharacterDetailsAvatar} from "./CharacterDetailsAvatar/CharacterDetailsAvatar";
+import {MoviesPanel} from "./MoviesPanel/MoviesPanel";
 import classes from './CharacterDetailsCard.module.css'
-import PanelInformacoesGerais from "./PanelInformacoesGerais/PanelInformacoesGerais";
-import PanelLugares from "./PanelLugares/PanelLugares";
 
-
+/**
+ * Componente de Exibição do Personagem e suas Informações dentro do Dialog
+ * @param character Personagem selecionado
+ * @returns Componente de Exibição do Personagem e suas Informações dentro do Dialog
+ */
 export default function CharacterDetailsCard({character}) {
-
-    const [planets, setPlanets] = useState(null);
-    const {isMobile} = useContext(ScreenSizeContext);
-
-
     const [value, setValue] = useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
-    const handleChangeIndex = (index) => {
-        setValue(index);
-    };
-
-    const panelAparicoes = () => {
-
-        return <TabPanel value={value} index={1}>
-            <Grid container spacing={1}>
-                {character.filmsNames.map((film) => (
-                    film.episode && (
-                        <Grid item xs={12} md={6}>
-                            <Paper elevation={2}>
-                                <Typography variant="subtitle1">
-                                    <span>Episode {film.episode}</span>
-                                </Typography>
-                                <Typography variant="subtitle2">{film.title}</Typography>
-                            </Paper>
-                        </Grid>
-                    )
-                ))}
-            </Grid>
-        </TabPanel>;
-
-    }
-
-    const avatar = (
-        <Grid container justify="center" alignItems="center">
-            <Grid item xs={12}>
-                <Grid container justify="center">
-                    <CharacterAvatar character={character} size={`16rem`}/>
-                </Grid>
-            </Grid>
-        </Grid>
-    )
-
+    //TODO: Componentizar o código abaixo. O Componente já está criado, falta fazê-lo funcionar
     const tabItems = () => (
-
         <Tabs value={value} onChange={handleChange}
               indicatorColor="primary" textColor="primary" variant="fullWidth">
             <Tab className={classes.TabItem} label="Informações Gerais"/>
@@ -65,16 +30,16 @@ export default function CharacterDetailsCard({character}) {
         </Tabs>
     )
 
-    let content = <div className="loader">Loading...</div>
+    let content = <Spinner/>
 
     if (character) {
         content =
             <Paper>
-                {avatar}
+                <CharacterDetailsAvatar character={character}/>
                 {tabItems()}
-                <PanelInformacoesGerais character={character}/>
-                {panelAparicoes()}
-                <PanelLugares character={character} value={value}/>
+                <GeneralInfoPanel character={character} value={value}/>
+                <MoviesPanel character={character} value={value}/>
+                <PlanetsPanel character={character} value={value}/>
             </Paper>
     }
 

@@ -1,17 +1,16 @@
 import {Grid, Paper, Typography} from "@material-ui/core";
 import TabPanel from "../../shared/TabPanel/TabPanel";
-import React, {useState} from "react";
+import React from "react";
 
-export default function PanelInformacoesGerais({character}){
-    const [value, setValue] = useState(0);
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
-
-    const handleChangeIndex = (index) => {
-        setValue(index);
-    };
+/**
+ *     Componente responsável pela exibição das Informações
+ * Gerais do personagem dentro do Dialog
+ * @param character Personagem Selecionado
+ * @param value Controlador do Tab/TabPanel
+ * @return Componente responsável pela exibição das Informações
+ * Gerais  do personagem dentro do Dialog
+ */
+export default function GeneralInfoPanel({character, value}){
 
     return (
         <TabPanel value={value} index={0}>

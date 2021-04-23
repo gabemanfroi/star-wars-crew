@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import {Box, Typography} from "@material-ui/core";
-import classes from './TabPanel.module.css'
 
 export default function TabPanel(props) {
     const { children, value, index, ...other } = props;

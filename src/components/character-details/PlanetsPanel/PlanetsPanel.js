@@ -1,9 +1,17 @@
-import TabPanel from "../../shared/TabPanel/TabPanel";
 import {Grid, Paper, Typography} from "@material-ui/core";
-import React, {useState} from "react";
+import React from "react";
 
-export default function PanelLugares({character, value}) {
+import TabPanel from "../../shared/TabPanel/TabPanel";
 
+/**
+ *     Componente responsável pela exibição dos Planetas em
+ * que o Personagem esteve ao decorrer da Saga dentro do Dialog
+ * @param character Personagem Selecionado
+ * @param value Controlador do Tab/TabPanel
+ * @return Componente responsável pela exibição dos Planetas em
+ * que o Personagem esteve ao decorrer da Saga dentro do Dialog
+ */
+export default function PlanetsPanel({character, value}) {
 
     return (
         <TabPanel value={value} index={2}>

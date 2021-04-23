@@ -22,7 +22,6 @@ const options = {
     eyebrowType: 'Default',
     mouthType: 'Smile',
 
-
 };
 
 export function getAvatarOptions(character) {

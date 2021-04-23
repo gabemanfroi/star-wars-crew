@@ -8,10 +8,9 @@ import CharacterDetailsCard from "../../components/character-details/CharacterDe
 
 export default function DetailsPage() {
 
-    const {characters, getCharacter, sendErrorMessage} = useContext(CharactersContext);
+    const {characters, getCharacter} = useContext(CharactersContext);
     const [character, setCharacter] = useState(null);
     const history = useHistory();
-    const baseUrl = 'https://swapi.dev/api/'
 
     useEffect(() => {
         const id = new URLSearchParams(window.location.search).get('id').replace('/', '')
@@ -19,20 +18,9 @@ export default function DetailsPage() {
             const auxCharacter = getCharacter(id);
             if (auxCharacter) {
                 setCharacter(auxCharacter);
-            } else {
-                sendErrorMessage('Deu Ruim');
-                history.push('/');
             }
         }
     }, [getCharacter, history, character, setCharacter, characters])
-
-    const fetchCharacterPlanets = (id) => {
-
-    }
-
-    const fetchCharacterMovies = (id) =>{
-
-    }
 
     let content = null
 

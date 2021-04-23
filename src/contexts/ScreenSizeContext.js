@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from 'react';
 
 export const ScreenSizeContext = createContext({});
 
-/*
+/**
 * Provedor de informação à aplicação de tamanho de tela mobile ou desktop
 * @param {ReactChildren} children Componentes filhos
 * @returns Provedor de tamanho de tela.

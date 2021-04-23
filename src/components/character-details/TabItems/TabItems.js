@@ -1,6 +1,7 @@
 import {Tab, Tabs} from "@material-ui/core";
-import classes from "../CharacterDetailsCard.module.css";
 import React, {useState} from "react";
+
+import classes from "../CharacterDetailsCard.module.css";
 
 export default function TabItems() {
 
@@ -13,7 +14,6 @@ export default function TabItems() {
     const handleChangeIndex = (index) => {
         setValue(index);
     };
-
 
     return (
         <Tabs value={value} onChange={handleChange}

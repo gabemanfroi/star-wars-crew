@@ -1,0 +1,5 @@
+@media (max-width: 720px) {
+    .CharacterDetailsHeader {
+        font-size: 30px !important;
+    }
+}

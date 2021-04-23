@@ -1,6 +1,6 @@
 import {Container, Fade} from "@material-ui/core";
 import React from 'react';
-import CharacterGrid from "../../components/home/CharacterList/CharacterGrid";
+import CharacterGrid from "../../components/home/CharacterGrid/CharacterGrid";
 import classes from './HomePage.module.css'
 
 export default function HomePage() {

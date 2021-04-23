@@ -13,8 +13,15 @@ body {
   Informações de Personagens
 */
 .MuiDialog-paperScrollPaper{
-  margin:5px!important;
+  min-width: 300px!important;
+  min-height: 300px!important;
 }
+@media(max-width:720px){
+  .MuiDialog-paperScrollPaper{
+    margin:5px!important;
+  }
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
