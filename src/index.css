@@ -8,20 +8,6 @@ body {
   background: #c1c1c1;
 }
 
-/*
-  Responsividade do Container do Dialog de
-  Informações de Personagens
-*/
-.MuiDialog-paperScrollPaper{
-  min-width: 300px!important;
-  min-height: 300px!important;
-}
-@media(max-width:720px){
-  .MuiDialog-paperScrollPaper{
-    margin:5px!important;
-  }
-}
-
 
 *::-webkit-scrollbar {
   width: 8px;
@@ -35,7 +21,11 @@ body {
   background-color: #dfdfdf;
   border-radius: 10px;
 }
-
+@media(max-width: 720px){
+  *::-webkit-scrollbar {
+    display: none;
+  }
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

@@ -21,7 +21,7 @@ export default function CharacterDetailsCard({character}) {
     };
 
     //TODO: Componentizar o código abaixo. O Componente já está criado, falta fazê-lo funcionar
-    const tabItems = () => (
+    const tabItems = (
         <Tabs value={value} onChange={handleChange}
               indicatorColor="primary" textColor="primary" variant="fullWidth">
             <Tab className={classes.TabItem} label="Informações Gerais"/>
@@ -30,22 +30,13 @@ export default function CharacterDetailsCard({character}) {
         </Tabs>
     )
 
-    let content = <Spinner/>
-/*
-    if (character) {
-        content =
-            <Paper>
-                <CharacterDetailsAvatar character={character}/>
-                {tabItems()}
-                <GeneralInfoPanel character={character} value={value}/>
-                <MoviesPanel character={character} value={value}/>
-                <PlanetsPanel character={character} value={value}/>
-            </Paper>
-    }
-*/
     return (
-        <>
-            {content}
-        </>
+        <Paper>
+            <CharacterDetailsAvatar character={character}/>
+            {tabItems}
+            <GeneralInfoPanel character={character} value={value}/>
+            <MoviesPanel character={character} value={value}/>
+            <PlanetsPanel character={character} value={value}/>
+        </Paper>
     )
 }

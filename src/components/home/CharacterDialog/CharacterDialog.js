@@ -5,6 +5,7 @@ import React, {useContext} from "react";
 import {ScreenSizeContext} from "../../../contexts/ScreenSizeContext";
 import CharacterDetailsCard from "../../character-details/CharacterDetailsCard";
 import classes from "./CharacterDialog.module.css";
+import {Spinner} from "../../shared/Spinner/Spinner";
 
 
 /**
@@ -25,26 +26,32 @@ export function CharacterDialog({character, setCharacter, open, setOpen}) {
         setOpen(false);
         setCharacter(null);
     }
-    return (
-        <Dialog onClose={handleCloseDialog} open={open}>
-            {isMobile &&
-            (
-                <Toolbar style={{backgroundColor: "#333"}}>
-                    <IconButton color="secondary" onClick={() => setOpen(false)}>
-                        <ArrowBack></ArrowBack>
-                    </IconButton>
-                </Toolbar>
-            )
-            }
+
+    const dialogContent= (
+         <>
+
             <DialogTitle>
                 <Typography variant="h4" className={classes.CharacterDetailsHeader}>
                     {character ? character.name : 'Carregando...'}
                 </Typography>
             </DialogTitle>
-            <CharacterDetailsCard character={character}></CharacterDetailsCard>
+            {isMobile && <CharacterDetailsCard character={character}/>}
             <DialogActions>
                 <Button color="secondary" variant="contained" onClick={() => setOpen(false)}>Sair</Button>
             </DialogActions>
+        </>
+    )
+
+    return (
+        <Dialog fullScreen onClose={handleCloseDialog} open={open}>
+            {isMobile && (
+                <Toolbar style={{backgroundColor: "#333"}}>
+                    <IconButton color="secondary" onClick={() => setOpen(false)}>
+                        <ArrowBack></ArrowBack>
+                    </IconButton>
+                </Toolbar>)}
+            {character ? dialogContent : <Spinner/>}
+
         </Dialog>
     )
 
