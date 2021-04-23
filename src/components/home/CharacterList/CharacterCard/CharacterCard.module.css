@@ -1,0 +1,9 @@
+
+@media (max-width: 720px){
+    .AvatarContainer{
+        padding-bottom: 0!important;
+    }
+    .CharacterInfoContainer{
+        padding-top: 5px!important;
+    }
+}
