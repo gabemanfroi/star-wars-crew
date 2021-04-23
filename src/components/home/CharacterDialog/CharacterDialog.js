@@ -27,25 +27,26 @@ export function CharacterDialog({character, setCharacter, open, setOpen}) {
         setCharacter(null);
     }
 
-    const dialogContent= (
-         <>
-
+    const dialogContent = (
+        <>
             <DialogTitle>
                 <Typography variant="h4" className={classes.CharacterDetailsHeader}>
                     {character ? character.name : 'Carregando...'}
                 </Typography>
             </DialogTitle>
-            {isMobile && <CharacterDetailsCard character={character}/>}
+            <CharacterDetailsCard character={character}/>
+            {!isMobile &&
             <DialogActions>
                 <Button color="secondary" variant="contained" onClick={() => setOpen(false)}>Sair</Button>
-            </DialogActions>
+            </DialogActions>}
+
         </>
     )
 
     return (
         <Dialog fullScreen onClose={handleCloseDialog} open={open}>
             {isMobile && (
-                <Toolbar style={{backgroundColor: "#333"}}>
+                <Toolbar style={{backgroundColor: "#333", position: "sticky", top: "0"}}>
                     <IconButton color="secondary" onClick={() => setOpen(false)}>
                         <ArrowBack></ArrowBack>
                     </IconButton>

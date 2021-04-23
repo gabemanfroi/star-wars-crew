@@ -18,7 +18,7 @@ export function MoviesPanel({character, value}){
             <Grid container spacing={1}>
                 {character.filmsNames.map((film) => (
                     film.episode && (
-                        <Grid item xs={12} md={6}>
+                        <Grid key={film.episode} item xs={12} md={6}>
                             <Paper elevation={2}>
                                 <Typography variant="subtitle1">
                                     <span>Episode {film.episode}</span>

@@ -1,6 +1,7 @@
-import {Grid, Paper, Typography} from "@material-ui/core";
+import {Grid, List, ListItem, ListItemIcon, ListItemText, Paper, Typography} from "@material-ui/core";
 import TabPanel from "../../shared/TabPanel/TabPanel";
 import React from "react";
+import {Cake, Public} from "@material-ui/icons";
 
 /**
  *     Componente responsável pela exibição das Informações
@@ -14,29 +15,23 @@ export default function GeneralInfoPanel({character, value}){
 
     return (
         <TabPanel value={value} index={0}>
-            <Grid container spacing={1}>
-                <Grid item xs={12} md={6}>
-                    <Paper>
-                        <Typography variant="subtitle1">
-                            Planeta Natal
-                        </Typography>
-                        <Typography variant="subtitle2">
-                            {character.homeworld}
-                        </Typography>
-                    </Paper>
-                </Grid>
-
-                <Grid item xs={12} md={6}>
-                    <Paper>
-                        <Typography variant="subtitle1">
-                            Ano de Nascimento
-                        </Typography>
-                        <Typography variant="subtitle2">
-                            {character.birth_year}
-                        </Typography>
-                    </Paper>
-                </Grid>
-            </Grid>
+            <List container spacing={1}>
+                <ListItem>
+                    <ListItemIcon>
+                        <Public></Public>
+                    </ListItemIcon>
+                    <ListItemText>{character.homeworld}</ListItemText>
+                </ListItem>
+                <ListItem>
+                    <ListItemIcon>
+                        <Cake/>
+                    </ListItemIcon>
+                    <ListItemText>
+                        {character.birth_year}
+                    </ListItemText>
+                </ListItem>
+            </List>
         </TabPanel>
     )
 }
+

@@ -31,6 +31,7 @@ export default function CharacterDetailsCard({character}) {
     )
 
     return (
+
         <Paper>
             <CharacterDetailsAvatar character={character}/>
             {tabItems}

@@ -17,7 +17,7 @@ export default function PlanetsPanel({character, value}) {
         <TabPanel value={value} index={2}>
             <Grid container spacing={1}>
                 {character.planetsNames.map(planet => (
-                    <Grid item xs={12} md={6}>
+                    <Grid key={planet} item xs={12} md={6}>
                         <Paper>
                             <Typography>
                                 {planet}

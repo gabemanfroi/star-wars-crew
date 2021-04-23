@@ -1,7 +1,7 @@
 import {AppBar, Container, Toolbar, Typography} from "@material-ui/core"
 import {useContext} from "react";
-import {ScreenSizeContext} from "../../../contexts/ScreenSizeContext";
 
+import {ScreenSizeContext} from "../../../contexts/ScreenSizeContext";
 
 export function Header(){
     const{isMobile} = useContext(ScreenSizeContext)
