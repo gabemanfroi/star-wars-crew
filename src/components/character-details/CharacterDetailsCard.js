@@ -31,7 +31,7 @@ export default function CharacterDetailsCard({character}) {
     )
 
     let content = <Spinner/>
-
+/*
     if (character) {
         content =
             <Paper>
@@ -42,7 +42,7 @@ export default function CharacterDetailsCard({character}) {
                 <PlanetsPanel character={character} value={value}/>
             </Paper>
     }
-
+*/
     return (
         <>
             {content}
